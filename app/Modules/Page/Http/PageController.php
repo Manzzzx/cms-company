@@ -10,8 +10,10 @@ class PageController extends Controller
 {
     public function store(Request $request, PageService $service)
     {
-        $service->create($request->all());
+        $service->create($request->validated());
 
-        return redirect()->back()->with('success', 'Page created');
+        return redirect()
+            ->route('admin.pages.index')
+            ->with('success', 'Page created successfully.');
     }
 }
