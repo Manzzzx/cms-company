@@ -11,4 +11,9 @@ abstract class Controller
 
         return view('admin.pages.index', compact('pages'));
     }
+    public function create()
+    {
+        return view('admin.pages.create');
+    }
+
 }
