@@ -3,6 +3,7 @@
 use Modules\Page\Http\PageController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['auth'])->group(function () {
-    Route::post('/admin/pages', [PageController::class, 'store']);
+Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/pages', [PageController::class, 'index'])->name('pages.index');
+    Route::post('/pages', [PageController::class, 'store'])->name('pages.store');
 });
