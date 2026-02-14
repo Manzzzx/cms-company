@@ -1,20 +1,20 @@
 <?php
 
-namespace Modules\Page\Models;
+namespace Modules\Service\Models;
 
 use App\Core\Traits\HasTranslations;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Page extends Model
+class Service extends Model
 {
     use SoftDeletes, HasTranslations;
 
-    protected $fillable = ['slug', 'status'];
+    protected $fillable = ['slug', 'status', 'icon'];
 
     protected $casts = [
         'status' => 'boolean',
     ];
 
-    protected string $translationModel = PageTranslation::class;
+    protected string $translationModel = ServiceTranslation::class;
 }

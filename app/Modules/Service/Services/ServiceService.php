@@ -1,16 +1,16 @@
 <?php
 
-namespace Modules\Page\Services;
+namespace Modules\Service\Services;
 
 use App\Core\Services\BaseModuleService;
 use Illuminate\Support\Str;
-use Modules\Page\Models\Page;
+use Modules\Service\Models\Service;
 
-class PageService extends BaseModuleService
+class ServiceService extends BaseModuleService
 {
     protected function getModelClass(): string
     {
-        return Page::class;
+        return Service::class;
     }
 
     protected function getEntityFields(array $data): array
@@ -18,6 +18,7 @@ class PageService extends BaseModuleService
         return [
             'slug' => Str::slug($data['slug']),
             'status' => $data['status'] ?? false,
+            'icon' => $data['icon'] ?? null,
         ];
     }
 
@@ -25,7 +26,7 @@ class PageService extends BaseModuleService
     {
         return [
             'title' => $translation['title'],
-            'content' => $translation['content'] ?? null,
+            'description' => $translation['description'] ?? null,
             'meta_title' => $translation['meta_title'] ?? null,
             'meta_description' => $translation['meta_description'] ?? null,
         ];

@@ -18,4 +18,9 @@ Route::middleware('auth')->group(function () {
 });
 
 require app_path('Modules/Page/routes.php');
+require app_path('Modules/Service/routes.php');
+require app_path('Modules/Portfolio/routes.php');
+require app_path('Modules/Team/routes.php');
+require app_path('Modules/Testimonial/routes.php');
+require app_path('Modules/ContactLead/routes.php');
 require __DIR__.'/auth.php';
