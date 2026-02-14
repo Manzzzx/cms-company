@@ -7,22 +7,11 @@ use Illuminate\Support\Str;
 
 class PageService
 {
-    private function generateUniqueSlug(string $slug): string
-    {
-        $base = Str::slug($slug);
-        $count = 1;
-
-        while (Page::where('slug', $base)->exists()) {
-            $base = Str::slug($slug) . '-' . $count++;
-        }
-
-        return $base;
-    }
     public function create(array $data)
     {
         $page = Page::create([
-            'slug' => $this->generateUniqueSlug($data['slug']),
-            'status' => $data['status'] ?? false
+            'slug' => Str::slug($data['slug']),
+            'status' => $data['status'] ?? false,
         ]);
 
         foreach ($data['translations'] as $locale => $translation) {

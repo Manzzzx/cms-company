@@ -4,6 +4,12 @@
 <div class="container">
   <h1>Create Page</h1>
 
+  @if ($errors->any())
+    <div style="color:red; margin-bottom: 1rem;">
+      {{ $errors->first() }}
+    </div>
+  @endif
+
   <form method="POST" action="{{ route('admin.pages.store') }}">
     @csrf
 
